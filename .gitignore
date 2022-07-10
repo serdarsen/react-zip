@@ -1,0 +1,12 @@
+dist/
+
+# Dependency directories
+node_modules/
+
+# IDEA editor
+.idea/
+
+# VSCode
+/.vscode/*
+!/.vscode/settings.json
+.history/
