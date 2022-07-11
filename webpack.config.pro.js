@@ -1,12 +1,9 @@
 const path = require("path");
-const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const { WebpackManifestPlugin } = require("webpack-manifest-plugin");
-const dotenv = require("dotenv").config({
-  path: path.join(__dirname, ".env"),
-});
+const DotEnv = require("dotenv-webpack");
 
 const config = {
   mode: "production",
@@ -55,9 +52,7 @@ const config = {
     new MiniCssExtractPlugin({ filename: "main.[fullhash].css" }),
     new CleanWebpackPlugin(),
     new WebpackManifestPlugin(),
-    new webpack.DefinePlugin({
-      "process.env": dotenv.parsed,
-    }),
+    new DotEnv(),
   ],
 };
 
