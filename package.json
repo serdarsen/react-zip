@@ -26,6 +26,7 @@
         "clean-webpack-plugin": "^4.0.0",
         "core-js": "^3.23.2",
         "css-loader": "^6.7.1",
+        "dotenv": "^16.0.1",
         "eslint": "^8.19.0",
         "eslint-config-airbnb": "^19.0.4",
         "eslint-plugin-import": "^2.26.0",
@@ -44,6 +45,7 @@
         "webpack-manifest-plugin": "^5.0.0"
     },
     "dependencies": {
+        "axios": "^0.27.2",
         "express": "^4.18.1",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",

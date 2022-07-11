@@ -1,5 +1,9 @@
 const path = require("path");
+const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const dotenv = require("dotenv").config({
+  path: path.join(__dirname, ".env"),
+});
 
 const config = {
   mode: "development",
@@ -49,6 +53,9 @@ const config = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "src", "index.html"),
+    }),
+    new webpack.DefinePlugin({
+      "process.env": dotenv.parsed,
     }),
   ],
 };
