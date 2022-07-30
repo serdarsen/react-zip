@@ -7,22 +7,24 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-const findPlaces = async (codes) => {
+const fetchData = async (codes) => {
+  const url = `https://app.zipcodebase.com/api/v1/search?apikey=${process.env.REACT_APP_ZIPCODEBASE_API_KEY}&codes=${codes}&country=US`;
+
   const response = await axios.get(
-    `https://app.zipcodebase.com/api/v1/search?apikey=${process.env.REACT_APP_ZIPCODEBASE_API_KEY}&codes=${codes}&country=US`,
+    url,
   );
 
   return response;
 };
 
-app.post("/places", async (req, res) => {
+app.post("/data", async (req, res) => {
   try {
-    const response = await findPlaces(req.body.codes);
+    const response = await fetchData(req.body.codes);
     const { data } = response || {};
 
     res.json(data);
   } catch (error) {
-    console.error("Error while finding places: ", error);
+    console.error("Error while fetching data: ", error);
     res.json({});
   }
 });

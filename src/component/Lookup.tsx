@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ItemModel from "../model/ItemModel";
+import DataService from "../service/DataService";
 import Card from "./Card";
 import Form from "./Form";
 import Header from "./Header";
@@ -10,30 +10,28 @@ type Prop = {
 }
 
 const Lookup: React.FC<Prop> = () => {
-  const [currentItem, setCurrentItem] = useState(null);
-  const [items, setItems] = useState([]);
+  const [data, setData] = useState();
 
-  const onClickRow = (item: ItemModel) => {
-    setItems([]);
-    setCurrentItem(item);
+  const fetchData = async (postalCode: string) => {
+    const response = await DataService.fetchData(postalCode);
+    const { data } = response || {};
+    setData(data);
   };
 
-  const createTitle = () => {
-    let title = "US Zip(Postal) Codes";
+  const onChangeForm = (postalCode: string) => {
+    fetchData(postalCode);
+  };
 
-    if (currentItem) {
-      title = `${currentItem.code} ${currentItem.city} ${currentItem.state}`;
-    }
-
-    return title;
+  const onClickList = () => {
+    setData(null);
   };
 
   return (
     <div className="lookup">
       <Card>
-        <Header title={createTitle()} />
-        <Form onChangeRequestItems={setItems} />
-        <List items={items} onClickRow={onClickRow} />
+        <Header />
+        <Form onChange={onChangeForm} />
+        <List data={data} onClick={onClickList} />
       </Card>
     </div>
   );

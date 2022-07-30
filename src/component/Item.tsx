@@ -1,19 +1,19 @@
 import React from "react";
-import ItemModel from "../model/ItemModel";
+import { Place } from "../model/Data";
 import "./item.scss";
 
 type Prop = {
-    item: ItemModel,
+    place: Place,
     onClick: Function;
 }
 
-const Item: React.FC<Prop> = ({ item, onClick }: Prop) => (
-  <li key={item.code} onClick={() => onClick(item)} onKeyDown={() => {}} role="row" className="item">
-    {item.code}
+const Item: React.FC<Prop> = ({ place, onClick }: Prop) => (
+  <li key={place.postal_code} onClick={() => onClick(place)} onKeyDown={() => {}} role="row" className="item">
+    {place.postal_code}
     {" "}
-    {item.city}
+    {place.city}
     {" "}
-    {item.state}
+    {place.state}
   </li>
 );
 

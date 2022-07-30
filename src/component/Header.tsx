@@ -1,14 +1,10 @@
 import React from "react";
 import "./header.scss";
 
-type Prop = {
-    title: string
-}
-
-const Header: React.FC<Prop> = ({ title }) => (
+const Header: React.FC = () => (
   <header className="header">
     <div className="header__title">
-      {title}
+      US Zip(Postal) Codes
     </div>
   </header>
 );
