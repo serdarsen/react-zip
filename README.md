@@ -4,16 +4,17 @@
 ![React Zip](./screenshot.png)
 
 ## Introduction
-React Zip is a demo app displaying US zip(postal) codes.
+React Zip is a demo app displaying zip postal codes.
 
 ### Feature
-- Ability to explore US zip(postal) codes.
+- Ability to explore zip postal codes.
 - Built with Webpack.
 
 ## Usage
 run `npm run dev`, browse `localhost:8080`
 
 ## Reference
+- [Bootstrap](https://getbootstrap.com/)
 - [Webpack](https://webpack.js.org/)
 - [Heroku](https://devcenter.heroku.com/categories/deployment)
 - [ESLint](https://eslint.org/)
