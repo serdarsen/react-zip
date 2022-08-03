@@ -1,0 +1,23 @@
+/* === Import Bootstrap functions === */
+@import "~bootstrap/scss/functions";
+
+/*-------------------------------------------------------------------*/
+/* Enable */
+$enable-shadows: true;
+
+/* Card */
+$card-bg: #fff;
+$card-border-width: 0;
+$card-border-radius: 0.2rem;
+$card-box-shadow: 0 30px 60px -12px rgb(50 50 93 / 25%),
+    0 18px 36px -18px rgb(0 0 0 / 30%), 0 -12px 36px -8px rgb(0 0 0 / 3%);
+
+/*-------------------------------------------------------------------*/
+/* === Import Bootstrap variables and mixins === */
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+/*-------------------------------------------------------------------*/
+/* === Boostrap Main SCSS === */
+@import "~bootstrap/scss/bootstrap";
+/*-------------------------------------------------------------------*/

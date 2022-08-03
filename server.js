@@ -8,7 +8,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 const fetchData = async (codes) => {
-  const url = `https://app.zipcodebase.com/api/v1/search?apikey=${process.env.REACT_APP_ZIPCODEBASE_API_KEY}&codes=${codes}&country=US`;
+  const url = `https://app.zipcodebase.com/api/v1/search?apikey=${process.env.REACT_APP_ZIPCODEBASE_API_KEY}&codes=${codes}`;
 
   const response = await axios.get(
     url,

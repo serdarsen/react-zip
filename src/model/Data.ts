@@ -18,7 +18,7 @@ export interface Results {
 
 export interface Query {
     codes: string[];
-    country: null;
+    country: string;
 }
 
 export interface Data {
