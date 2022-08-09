@@ -1,21 +1,18 @@
 import React, { useState } from "react";
-import Select from "react-select";
+import Select, { SingleValue } from "react-select";
 import { Place, Results } from "../model/Data";
 import { Option } from "../model/Option";
 import DataService from "../service/DataService";
 
-type Prop = {
-}
-
-const Lookup: React.FC<Prop> = () => {
-  const [options, setOptions] = useState([]);
+const Lookup: React.FC = () => {
+  const [options, setOptions] = useState<Option[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [city, setCity] = useState(null);
-  const [state, setState] = useState(null);
-  const [postalCode, setPostalCode] = useState(null);
-  const [countryCode, setCountryCode] = useState(null);
-  const numberRegEx = /^\d+$/;
+  const [city, setCity] = useState<string>();
+  const [state, setState] = useState<string>();
+  const [postalCode, setPostalCode] = useState<string>();
+  const [countryCode, setCountryCode] = useState<string>();
 
+  const numberRegEx = /^\d+$/;
   const isNumber = (value:string) => numberRegEx.test(String(value).toLowerCase());
 
   const createOptions = (results: Results) => {
@@ -52,12 +49,12 @@ const Lookup: React.FC<Prop> = () => {
     }
   };
 
-  const onChange = (option: Option) => {
+  const onChange = (option: SingleValue<Option>) => {
     const { place } = option || {};
-    setCity(place.city);
-    setState(place.state);
-    setPostalCode(place.postal_code);
-    setCountryCode(place.country_code);
+    setCity(place?.city);
+    setState(place?.state);
+    setPostalCode(place?.postal_code);
+    setCountryCode(place?.country_code);
   };
 
   return (

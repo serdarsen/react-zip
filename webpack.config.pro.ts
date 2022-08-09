@@ -17,7 +17,7 @@ const config: Configuration = {
   entry: "./src/index.tsx",
   output: {
     path: Path.resolve(__dirname, "build"),
-    filename: "[name].[contenthash].js",
+    filename: "main.[contenthash].js",
     publicPath: "",
   },
   module: {
@@ -89,6 +89,7 @@ const config: Configuration = {
     new ESLintPlugin({
       extensions: ["js", "jsx", "ts", "tsx"],
     }),
+    new MiniCssExtractPlugin({ filename: "main.[contenthash].css" }),
     new CleanWebpackPlugin(),
     new DotEnv(),
   ],

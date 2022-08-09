@@ -12,7 +12,7 @@ import { Configuration as WebpackDevServerConfiguration } from "webpack-dev-serv
 
 interface Configuration extends WebpackConfiguration {
     devServer?: WebpackDevServerConfiguration;
-  }
+}
 
 const config: Configuration = {
   mode: "development",
