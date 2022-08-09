@@ -11,7 +11,7 @@ React Zip is a demo app displaying zip postal codes.
 - Built with Webpack.
 
 ## Usage
-run `npm run dev`, browse `localhost:8080`
+run `npm run start`, browse `localhost:5000`
 
 ## Reference
 - [Bootstrap](https://getbootstrap.com/)
